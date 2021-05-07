@@ -21,5 +21,9 @@ class FileProcessor
     return line.split(".").last.to_i
   end
 
+  def extract_first_word(line)
+    return line.split(".").first.gsub(" ","-")
+  end
+
   
 end
