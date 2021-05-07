@@ -51,6 +51,5 @@ class FileProcessor
       return "facet"
     end 
   end 
-
   
 end
