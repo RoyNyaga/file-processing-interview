@@ -9,8 +9,8 @@ class FileProcessor
     @data = data
  end
 
-  @@domains = ["Extraversion", "Agreeableness", "Conscientiousness", 
-    "Neuroticism", "Openness to Experience"]
+  @@domains = ["EXTRAVERSION", "AGREEABLENESS", "CONSCIENTIOUSNESS", 
+    "NEUROTICISM", "OPENNESS TO EXPERIENCE"]
   @@domain_in_context = ""
 
   def create_hash
@@ -22,9 +22,8 @@ class FileProcessor
       elsif detect_line_type(line) == "domain" then
         @@domain_in_context = extract_first_word(line)
         hashed_data["#{@@domain_in_context}"] = {}
-        hashed_data["#{@@domain_in_context}"]["Overal-Score"] = extract_score(line)
+        hashed_data["#{@@domain_in_context}"]["Overall Score"] = extract_score(line)
         hashed_data["#{@@domain_in_context}"]["Facets"] = {}
-        p "yes"
       elsif detect_line_type(line) == "facet" then
         hashed_data["#{@@domain_in_context}"]["Facets"]["#{extract_first_word(line)}"] = extract_score(line)
       end 
@@ -39,12 +38,12 @@ class FileProcessor
   end
 
   def extract_first_word(line)
-    return line.split(".").first.titleize
+    return line.split(".").first
   end
 
   def detect_line_type(line)
     last_word = line.split(".").last.strip
-    first_word = line.split(".").first.titlecase
+    first_word = line.split(".").first
     if last_word == "Score" then 
       return "description"
     elsif @@domains.include?(first_word) then 
