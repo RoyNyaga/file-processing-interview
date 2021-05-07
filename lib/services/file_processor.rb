@@ -1,5 +1,6 @@
 require 'json'
 require 'httparty'
+require "Titleize"
 
 class FileProcessor
   attr_accessor :data
@@ -9,7 +10,7 @@ class FileProcessor
  end
 
   @@domains = ["Extraversion", "Agreeableness", "Conscientiousness", 
-    "Neuroticism", "Openness To Experience"]
+    "Neuroticism", "Openness to Experience"]
   @@domain_in_context = ""
 
   def create_hash
@@ -23,6 +24,7 @@ class FileProcessor
         hashed_data["#{@@domain_in_context}"] = {}
         hashed_data["#{@@domain_in_context}"]["Overal-Score"] = extract_score(line)
         hashed_data["#{@@domain_in_context}"]["Facets"] = {}
+        p "yes"
       elsif detect_line_type(line) == "facet" then
         hashed_data["#{@@domain_in_context}"]["Facets"]["#{extract_first_word(line)}"] = extract_score(line)
       end 
@@ -37,12 +39,12 @@ class FileProcessor
   end
 
   def extract_first_word(line)
-    return line.split(".").first.gsub(" ","-")
+    return line.split(".").first.titleize
   end
 
   def detect_line_type(line)
     last_word = line.split(".").last.strip
-    first_word = line.split(".").first.gsub(" ", "-")
+    first_word = line.split(".").first.titlecase
     if last_word == "Score" then 
       return "description"
     elsif @@domains.include?(first_word) then 
