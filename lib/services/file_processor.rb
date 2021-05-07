@@ -12,8 +12,23 @@ class FileProcessor
     "Neuroticism", "Openness To Experience"]
   @@domain_in_context = ""
 
-
-  
+  def create_hash
+    hashed_data = {"NAME"=>"Roy Nyaga Andre", "EMAIL"=>"nyagaandreroy@gmail.com"}
+    @data.each do |line| 
+      line_type = detect_line_type(line)
+      if detect_line_type(line) == "description" then 
+        next 
+      elsif detect_line_type(line) == "domain" then
+        @@domain_in_context = extract_first_word(line)
+        hashed_data["#{@@domain_in_context}"] = {}
+        hashed_data["#{@@domain_in_context}"]["Overal-Score"] = extract_score(line)
+        hashed_data["#{@@domain_in_context}"]["Facets"] = {}
+      elsif detect_line_type(line) == "facet" then
+        hashed_data["#{@@domain_in_context}"]["Facets"]["#{extract_first_word(line)}"] = extract_score(line)
+      end 
+    end 
+    return hashed_data
+  end
 
   private 
 
