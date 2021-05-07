@@ -1,0 +1,40 @@
+Domain/Facet...... Score
+EXTRAVERSION.........70
+Friendliness.........65
+Gregariousness.......55
+Assertiveness........88
+Activity Level.......60
+Excitement-Seeking...26
+Cheerfulness.........84
+Domain/Facet...... Score
+AGREEABLENESS...60
+Trust...........32
+Morality........81
+Altruism........45
+Cooperation.....35
+Modesty.........45
+Sympathy........95
+Domain/Facet...... Score
+CONSCIENTIOUSNESS......83
+Self-Efficacy..........97
+Orderliness............12
+Dutifulness............95
+Achievement-Striving...84
+Self-Discipline........86
+Cautiousness...........80
+Domain/Facet...... Score
+NEUROTICISM..........56
+Anxiety..............73
+Anger................35
+Depression...........38
+Self-Consciousness...83
+Immoderation.........28
+Vulnerability........68
+Domain/Facet...... Score
+OPENNESS TO EXPERIENCE...56
+Imagination..............72
+Artistic Interests.......40
+Emotionality.............32
+Adventurousness..........93
+Intellect................18
+Liberalism...............62
