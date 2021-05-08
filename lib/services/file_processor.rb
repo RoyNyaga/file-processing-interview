@@ -31,8 +31,6 @@ class FileProcessor
     return hashed_data
   end
 
-  private 
-
   def extract_score(line)
     return line.split(".").last.to_i
   end
