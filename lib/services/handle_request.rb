@@ -9,6 +9,6 @@ class HandleRequest
     }
 
     response = HTTParty.post(@@uri, options)
-    puts response
+    return response.body
   end 
 end 
