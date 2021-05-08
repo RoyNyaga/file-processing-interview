@@ -11,7 +11,7 @@ This utility is capable of parsing information from a .txt file to JSON data whi
 ### Installation
 N/B To have the application run with your ruby version or bundler version, make sure to delete the Gemfile.lock file before running `bundle install`.
 - Clone the app with the command
-```git@github.com:RoyNyaga/file-processing-interview.git``` 
+```git clone git@github.com:RoyNyaga/file-processing-interview.git``` 
 - Enter the root directory (the folder which contains the Gemfile) using your terminal and install gems using the command
 ``` bundle install``` 
 
