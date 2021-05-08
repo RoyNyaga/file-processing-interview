@@ -8,6 +8,7 @@ file_processor = FileProcessor.new(raw_file_data)
 hashed_data = file_processor.create_hash
 
 json_data = hashed_data.to_json
-HandleRequest.post_json_data(json_data)
+response = HandleRequest.post_json_data(json_data)
+puts response
 
 
