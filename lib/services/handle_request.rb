@@ -1,6 +1,6 @@
 class HandleRequest 
   include HTTParty
-  @@uri = 'https://recruitbot.trikeapps.com/api/v1/roles/bellroy-tech-team-recruit/big_five_profile_submissions'
+  URL = 'https://recruitbot.trikeapps.com/api/v1/roles/bellroy-tech-team-recruit/big_five_profile_submissions'
 
   def self.post_json_data(json_data)
     options = {
@@ -8,7 +8,11 @@ class HandleRequest
       headers: { "Content-Type" => "application/json" }
     }
 
-    response = HTTParty.post(@@uri, options)
+    begin 
+      response = HTTParty.post(URL, options)
+    rescue StandardError => e 
+      return "request could not be effected: #{e.message}"
+    end
     return response.body
   end 
 end 
